@@ -188,3 +188,34 @@ int main(){
         printf("\n");
     }
 }
+
+//2023-08-22
+#include <stdio.h>
+int main(){
+    int n;
+    int count = 1;
+    scanf("%d", &n);
+    int zig[n][n];
+    for(int i=0; i<n; i++){
+        if (i%2==0){
+            for(int j=0; j<n; j++){
+                zig[i][j] = count;
+                count++;
+            }
+        } 
+        else {
+            for(int k=n-1; k>=0; k--){
+                zig[i][k] = count;
+                count++;
+            }
+        }
+    }
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            printf("%d ", zig[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
