@@ -80,3 +80,17 @@ int main() {
     }
     printf("%d", count);
 }
+
+//2023-08-23
+
+//codeup 1733 I.O.I
+#include <stdio.h>
+int main(){
+    char I[100] = {0,};
+    scanf("%s", I);
+    if(I[0]=='I' && I[1]=='O' && I[2]=='I' && I[3]=='\0')
+        printf("IOI is the International Olympiad in Informatics.");
+    else
+        printf("I don't care.");
+}
+
