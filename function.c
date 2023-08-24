@@ -150,3 +150,137 @@ int main()
   scanf("%lf", &x);
   printf("%lld\n", f(x));
 }
+
+//2023-08-25
+
+//codeup 1554 내림
+#include <stdio.h>
+double x;
+
+long long int f(double n){
+  long long int k = (long long int) n;
+  if(n-k==0)
+    return n;
+  else{
+    if(n>=0)
+      return n;
+    else
+      return n-1;
+  }
+}
+
+int main(){
+  scanf("%lf", &x);
+  printf("%lld", f(x));
+}
+
+//codeup 1555 합 리턴
+#include <stdio.h>
+
+int n;
+
+long long int f(int x){
+  long long int sum=0;
+  for(int i=0; i<=n; i++){
+    sum += i;
+  }
+  return sum;
+}
+
+int main()
+{
+  scanf("%d", &n);
+  printf("%lld\n", f(n));
+}
+
+//codeup 1556 팩토리얼
+#include <stdio.h>
+
+int n;
+
+long long int f(int x){
+  if(x==0) return 0;
+  long long int result=1;
+  for(int i=1; i<=x; i++){
+    result *= i;
+  }
+  return result;
+}
+
+int main()
+{
+  scanf("%d", &n);
+  printf("%lld\n", f(n));
+}
+
+//codeup 1557 약수 갯수
+#include <stdio.h>
+
+int n;
+
+int f(int x){
+  int count=0;
+  for(int i=1; i<=x; i++){
+    if(x%i==0)
+      count++;
+  }
+  return count;
+}
+
+int main()
+{
+  scanf("%d", &n);
+  printf("%d\n", f(n));
+}
+
+//codeup 1558 뒤집어 리턴
+#include <stdio.h>
+
+long long int n;
+
+long long int (long long int x){
+  while x>9{
+    printf("%lld", x%10);
+    x /= 10;
+  }
+  return x;
+}
+
+int main()
+{
+  scanf("%lld", &n);
+  printf("%lld\n", f(n));
+}
+
+//codeup 1559 합 리턴
+#include <stdio.h>
+
+int n, m;
+
+long long int f(int a, int b){
+  return (long long int)a+b;
+}
+
+int main()
+{
+  scanf("%d%d", &n, &m);
+  printf("%lld\n", f(n, m));
+}
+
+//codeup 1560 차이 리턴
+#include <stdio.h>
+
+int n, m;
+
+long long int f(long long int a, long long int b){
+  if(a>b)
+    return a-b;
+  else
+    return b-a;
+}
+
+int main()
+{
+  scanf("%d%d", &n, &m);
+  printf("%lld\n", f(n, m));
+}
