@@ -1,7 +1,7 @@
 #include <stdio.h>
 int i, k ,n=8;
 
-int doublehash(int key){
+int doublehash (int key){
     if(key>20) return 4;
     else return 5;
 }
