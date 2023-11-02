@@ -40,6 +40,7 @@ void outputData (Person *p){
     printf("%s, %d\n", p->name, p->age);
 }
 
+
 //typedef struct {
 //    int x;
 //    int y;
