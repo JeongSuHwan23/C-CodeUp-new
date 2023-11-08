@@ -7,7 +7,7 @@ typedef struct Node{
 }Node;
 
 void printList(Node* head){
-    Node *p = head;  //1)처음위치부터 출력;
+    Node *p = head->next;  //1)처음위치부터 출력;
     int cnt = 0;
     if (head == NULL) return;
     do {
@@ -24,7 +24,7 @@ Node* insertFirst(Node* head, element data){
     node->data = data;
     if (head == NULL){
         head=node; // head의 주소로 새로운노드의 주소 저장
-        node->next=head; //새로운노드의 다음 주소로 head 저장
+        node->next=node; //새로운노드의 다음 주소로 head 저장
     }
     else{
         node->next =head->next; //새로운노드의 다음 주소로 head 저장
@@ -49,8 +49,8 @@ Node* insertLast(Node* head, element data){
 int main() {
     Node *head=NULL, *tail, *ptr;
     printf("처음위치에 연결\n");
-    for(int i = 1;i< 5;i++){
-        head = insertFirst(head, i);//첫위치에 삽잆하는 함수 호출
+    for(int i = 1; i < 11;i++){
+        head = insertFirst(head, 4%i);//첫위치에 삽잆하는 함수 호출
     }
     printList(head);
     printf("마지막위치에 연결\n");
@@ -61,6 +61,3 @@ int main() {
 
     return 0;
 }
-
-
-
