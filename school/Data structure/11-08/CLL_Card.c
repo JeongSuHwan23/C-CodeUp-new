@@ -73,4 +73,5 @@ int main() {
     printf("마지막 카드번호 : %d",head->data);
     free(head);
     return 0;
+
 }
