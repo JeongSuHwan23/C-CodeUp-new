@@ -32,7 +32,7 @@ void push(element item){
   }
 }
 
-void pop(){ //??? ??
+void pop(){
   if (isEmpty())
     printf("Empty");
   else{
@@ -42,7 +42,7 @@ void pop(){ //??? ??
 
 }
 
-void peek(){//???
+void peek(){
   if (isEmpty())
     printf("Empty");
   else{
