@@ -54,6 +54,7 @@ Node* changeCard(Node* head){
     return head; // 새로운 헤드값으로 리턴
 }
 
+
 int main() {
     Node *head =NULL;
     int n;
