@@ -12,7 +12,8 @@ void init(ArrayList* L){
 int isEmpty(ArrayList* L){
   return L->size ==0;
 }
-int isFull(ArrayList* L){
+
+int isFull(ArrayList *L) {
   return L->size == MAX;
 }
 element getEntry(ArrayList* L, int pos){
