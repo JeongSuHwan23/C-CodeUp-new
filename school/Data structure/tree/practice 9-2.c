@@ -6,13 +6,13 @@ typedef struct TNode {
     struct TNode *left, *right;
 } TNode;
 
-TNode n1 = { 1, NULL, NULL};
-TNode n2 = { 4, NULL, NULL};
-TNode n3 = { '*', &n1, &n2};
-TNode n4 = { 16, NULL, NULL};
-TNode n5 = { 25, NULL, NULL };
-TNode n6 = { '+', &n4, &n5};
-TNode n7 = { '+', &n3, &n6};
+TNode n1 = {1, NULL, NULL};
+TNode n2 = {4, NULL, NULL};
+TNode n3 = {'*', &n1, &n2};
+TNode n4 = {16, NULL, NULL};
+TNode n5 = {25, NULL, NULL};
+TNode n6 = {'+', &n4, &n5};
+TNode n7 = {'+', &n3, &n6};
 TNode *exp = &n7;
 
 // 수식 계산 함수
@@ -29,9 +29,9 @@ int evaluate(TNode *root) {
     int op1 = evaluate(root->left);
     // 두 번째 피연산자에 오른쪽 자식 노드 결과값.
     int op2 = evaluate(root->right);
-    printf("%d %c %d을 계산합니다.\n",op1, root->data, op2);
+    printf("%d %c %d을 계산합니다.\n", op1, root->data, op2);
     // root 노드 자신의 데이터(연산자)에 따라 연산 결과값 반환.
-    switch(root->data) {
+    switch (root->data) {
       case '+':
         return op1 + op2;
 

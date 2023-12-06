@@ -3,18 +3,18 @@
 
 typedef struct Node {
     int key;
-    struct Node* left;
-    struct Node* right;
+    struct Node *left;
+    struct Node *right;
 } Node;
 
-Node* newNode(int item) {
-  Node* temp = (Node*)malloc(sizeof(Node));
+Node *newNode(int item) {
+  Node *temp = (Node *) malloc(sizeof(Node));
   temp->key = item;
   temp->left = temp->right = NULL;
   return temp;
 }
 
-Node* insert(Node* node, int key) {
+Node *insert(Node *node, int key) {
   if (node == NULL) return newNode(key);
   if (key < node->key)
     node->left = insert(node->left, key);
@@ -23,7 +23,7 @@ Node* insert(Node* node, int key) {
   return node;
 }
 
-void postorder(Node* node) {
+void postorder(Node *node) {
   if (node != NULL) {
     postorder(node->left);
     postorder(node->right);
@@ -34,8 +34,8 @@ void postorder(Node* node) {
 int main() {
   Node *root = NULL;
   int key;
-  while(scanf("%d", &key) != EOF) {
-    if(root == NULL) {
+  while (scanf("%d", &key) != EOF) {
+    if (root == NULL) {
       root = insert(root, key);
     } else {
       insert(root, key);

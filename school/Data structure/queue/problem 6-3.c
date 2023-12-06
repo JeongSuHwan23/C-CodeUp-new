@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 #define MAX_Q_SIZE 5
 typedef int element;
 
@@ -8,19 +9,19 @@ typedef struct {
     element data[MAX_Q_SIZE];
 } Queue;
 
-void initQueue(Queue* q) {
+void initQueue(Queue *q) {
   q->front = q->rear = 0;
 }
 
-int isEmpty(Queue* q) {
+int isEmpty(Queue *q) {
   return (q->front == q->rear);
 }
 
-int isFull(Queue* q) {
+int isFull(Queue *q) {
   return ((q->rear + 1) % MAX_Q_SIZE == q->front);
 }
 
-void enQueue(Queue* q, element item) {
+void enQueue(Queue *q, element item) {
   if (isFull(q)) {
     printf("큐가 포화상태입니다.\n");
   } else {
@@ -29,7 +30,7 @@ void enQueue(Queue* q, element item) {
   }
 }
 
-element deQueue(Queue* q) {
+element deQueue(Queue *q) {
   if (isEmpty(q)) {
     printf("큐는 공백상태입니다.\n");
     return -1; // Return an error value since the queue is empty
@@ -40,7 +41,7 @@ element deQueue(Queue* q) {
   }
 }
 
-void printQueue(Queue* q) {
+void printQueue(Queue *q) {
   int i;
   printf("QUEUE(front=%d rear=%d) = ", q->front, q->rear);
   if (isEmpty(q)) {

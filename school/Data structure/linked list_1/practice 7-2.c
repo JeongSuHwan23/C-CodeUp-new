@@ -8,40 +8,40 @@ typedef struct Node {
 } Node;
 
 // 노드를 맨 앞에 삽입하는 함수
-Node* insertFirst(Node *head, element value) {
-  Node *p = (Node*)malloc(sizeof(Node));
+Node *insertFirst(Node *head, element value) {
+  Node *p = (Node *) malloc(sizeof(Node));
   p->next = head;
   p->data = value;
   return p;
 }
 
 // pre 노드 뒤에 새로운 노드를 삽입하는 함수
-Node* insert(Node *pre, element value) {
-  Node *p = (Node*)malloc(sizeof(Node));
+Node *insert(Node *pre, element value) {
+  Node *p = (Node *) malloc(sizeof(Node));
   p->data = value;
   p->next = pre->next;
   pre->next = p;
 }
 
 // 맨 앞 노드를 삭제하는 함수
-Node* deleteFirst(Node *head) {
+Node *deleteFirst(Node *head) {
   if (head == NULL) return NULL;
-  Node* removed = head;
-  Node* newHead = head->next;
+  Node *removed = head;
+  Node *newHead = head->next;
   free(removed);
   return newHead;
 }
 
 // pre 노드 다음의 노드를 삭제하는 함수
-Node* delete(Node *head, Node *pre) {
-  Node* removed = pre->next;
+Node *delete(Node *head, Node *pre) {
+  Node *removed = pre->next;
   pre->next = removed->next;
   free(removed);
 }
 
 // 연결 리스트를 출력하는 함수
 void printList(Node *head) {
-  while(head != NULL) {
+  while (head != NULL) {
     printf("%d->", head->data);
     head = head->next;
   }
@@ -52,7 +52,7 @@ void printList(Node *head) {
 int getSum(Node *head) {
   int sum = 0;
   Node *p = head;
-  while(p != NULL) {
+  while (p != NULL) {
     sum += p->data;
     p = p->next;
   }

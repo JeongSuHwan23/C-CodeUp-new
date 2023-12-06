@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include<stdlib.h>
 
 #define MAX 200
-
 typedef int element;
 
 typedef struct {
@@ -10,57 +9,41 @@ typedef struct {
     int heap_size;
 } HeapType;
 
-void insertMaxHeap(HeapType *h, element item) {
+void insertMinHeap(HeapType *h, element item) {
   int i;
   i = ++(h->heap_size);
-
-  while ((i != 1) && (item > h->heap[i / 2])) {
+  while ((i != 1) && (item < h->heap[i / 2])) {
     h->heap[i] = h->heap[i / 2];
     i /= 2;
   }
-
   h->heap[i] = item;
 }
 
-element deleteMaxHeap(HeapType *h) {
+element deleteMinHeap(HeapType *h) {
   int parent, child;
   element item, temp;
 
-  if (h->heap_size == 0) {
-    printf("Heap is empty\n");
-    return -1;
-  }
-
   item = h->heap[1];
-  temp = h->heap[(h->heap_size)--];
+  temp = h->heap[h->heap_size--];
   parent = 1;
   child = 2;
 
   while (child <= h->heap_size) {
-    // Compare left and right children to find the larger one
-    if ((child < h->heap_size) && (h->heap[child] < h->heap[child + 1])) {
+    if ((child < h->heap_size) && (h->heap[child] > h->heap[child + 1]))
       child++;
-    }
+    if (temp <= h->heap[child]) break;
 
-    // If the value of the child is smaller than the temp, break the loop
-    if (temp >= h->heap[child]) {
-      break;
-    }
-
-    // Move down one level
     h->heap[parent] = h->heap[child];
     parent = child;
     child *= 2;
   }
-
   h->heap[parent] = temp;
   return item;
 }
 
 void printHeap(HeapType *heap) {
-  for (int i = 1; i <= heap->heap_size; i++) {
+  for (int i = 1; i <= heap->heap_size; i++)
     printf("[%d]: %d ", i, heap->heap[i]);
-  }
   printf("\n");
 }
 
@@ -69,24 +52,23 @@ int main() {
   HeapType *heap = (HeapType *) malloc(sizeof(HeapType));
   heap->heap_size = 0;
 
-  printf("최대힙 삽입\n");
-  insertMaxHeap(heap, e1);
+  printf("최소힙 삽입\n");
+  insertMinHeap(heap, e1);
   printHeap(heap);
-  insertMaxHeap(heap, e2);
+  insertMinHeap(heap, e2);
   printHeap(heap);
-  insertMaxHeap(heap, e3);
+  insertMinHeap(heap, e3);
   printHeap(heap);
 
-  printf("최대힙 삭제\n");
+  printf("최소힙 삭제\n");
   printHeap(heap);
-  deleteMaxHeap(heap);
+  deleteMinHeap(heap);
   printHeap(heap);
-  deleteMaxHeap(heap);
+  deleteMinHeap(heap);
   printHeap(heap);
-  deleteMaxHeap(heap);
+  deleteMinHeap(heap);
   printHeap(heap);
 
   free(heap);
-
   return 0;
 }
